@@ -1,0 +1,18 @@
+* C:\Users\kevin\Documents\ESE5800\HW2\HW2q2c.asc
+V1 N001 0 SINE(0 170 {f})
+V2 0 N003 SINE(0 170 {f})
+L1 N001 N002 {Lc}
+L2 N003 N004 {Lc}
+D1 N002 vd D
+D2 N004 vd D
+I1 vd 0 {Iload}
+.model D D
+.lib C:\Users\kevin\AppData\Local\LTspice\lib\cmp\standard.dio
+.step param Iload 0 10 1
+.meas TRAN avg_vd AVG V(vd)
+.ic I(L2)=0
+.tran {1/f}
+.param Lc=90m
+.param f=60
+.backanno
+.end
